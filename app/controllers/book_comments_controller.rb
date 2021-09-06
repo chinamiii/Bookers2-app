@@ -12,7 +12,6 @@ class BookCommentsController < ApplicationController
 
   def destroy
     @book = Book.find(params[:book_id])
-    @book_comment = current_user.book_comments.find_by(book_id: @book.id)
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
 
 

@@ -4,6 +4,8 @@ class Book < ApplicationRecord
     has_many :book_comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
 
+    has_many :favorited_users, through: :favorites, source: :user
+
 
     validates :title, presence: true
 
@@ -28,6 +30,7 @@ class Book < ApplicationRecord
                         @book = Book.all
         end
     end
+
 
 
 end
